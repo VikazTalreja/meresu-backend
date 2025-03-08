@@ -103,7 +103,6 @@ const EXA_API_KEY = process.env.EXA_API_KEY;
 app.use(cors());
 app.use(express.json());
 
-//  Function to search using Exa AI
 async function searchCompanyWithExa(companyName) {
   try {
     const response = await axios.post(
@@ -123,7 +122,6 @@ async function searchCompanyWithExa(companyName) {
   }
 }
 
-// Function to summarize using Perplexity AI
 async function summarizeWithPerplexity(rawData) {
   try {
     const requestBody = {
@@ -146,7 +144,9 @@ async function summarizeWithPerplexity(rawData) {
     return null;
   }
 }
-// Endpoint to fetch company details
+
+
+
 app.post("/api/company-info", async (req, res) => {
   try {
     const { companyName } = req.body;
